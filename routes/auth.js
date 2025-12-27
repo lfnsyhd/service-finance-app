@@ -8,6 +8,15 @@ dotenv.config();
 
 const router = express.Router();
 
+// Handle preflight requests for CORS
+router.options('/register', (req, res) => {
+    res.status(200).end();
+});
+
+router.options('/login', (req, res) => {
+    res.status(200).end();
+});
+
 // Register new user
 router.post('/register', async (req, res) => {
     const { email, password } = req.body;
